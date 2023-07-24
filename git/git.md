@@ -7,7 +7,8 @@
 ## 분산 버전 관리 시스템 (DVCS)
  ![DVCS](./assets/distributed.png)
 
- 세가지 상태
+
+## 세가지 상태
  ![DVCS](./assets/areas.png)
 
 
@@ -37,6 +38,7 @@ git commit -m 'message'
 git remote add origin <remoteurl>
 ```
 - 원격 저장소 주소를 `origin`이라는 별명으로 저장
+- 한번 연결 이후에는 push 명령어만 사용하여 업로드
 
 ```shell
 git push origin main
