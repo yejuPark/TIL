@@ -4,12 +4,26 @@
  “버전 관리” 는 무엇이고 우리는 왜 이것을 알아야 할까? 버전 관리 시스템은 파일 변화를 시간에 따라 기록했다가 나중에 특정 시점의 버전을 다시 꺼내올 수 있는 시스템이다. 이 책에서는 버전 관리하는 예제로 소프트웨어 소스 코드만 보여주지만, 실제로 거의 모든 컴퓨터 파일의 버전을 관리할 수 있다.
 
 
+## 중앙 집중식 버전 관리 (CVCS)
+![DVCS](./assets/centralized.png)
+
+
 ## 분산 버전 관리 시스템 (DVCS)
  ![DVCS](./assets/distributed.png)
 
 
+
 ## 세가지 상태
  ![DVCS](./assets/areas.png)
+- Committed란 데이터가 로컬 데이터베이스에 안전하게 저장됐다는 것을 의미한다.
+- Modified는 수정한 파일을 아직 로컬 데이터베이스에 커밋하지 않은 것을 말한다.
+- Staged란 현재 수정한 파일을 곧 커밋할 것이라고 표시한 상태를 의미한다.
+
+## 세가지 위치
+- working directory
+- staging area = index
+- .git directory
+
 
 
 
