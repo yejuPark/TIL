@@ -79,9 +79,9 @@ git branch
 - branch 목록 제시
 
 ```shell
-git branch <이름>
+git branch -c <pyj>
 ```
-- <이름>의 branch 생성
+- <pyj>의 branch 생성 (c:create)
 
 ```shell
 git switch <branch name>
