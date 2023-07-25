@@ -81,7 +81,7 @@ git branch
 ```shell
 git branch -c <pyj>
 ```
-- <pyj>의 branch 생성 (c:create)
+- <pyj>의 branch 생성 (c : create)
 
 ```shell
 git switch <branch name>
