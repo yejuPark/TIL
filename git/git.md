@@ -59,3 +59,15 @@ git push origin main
 ```
 
 - main branch를 `origin` 원격 저장소로 업로드
+
+
+```shell
+git clone <remote url>
+```
+- 원격 저장소에 있는 레포를 현재 폴더에 복제
+
+
+```shell
+git pull origin main
+```
+- 원격 저장소에 마지막 코드 상태를 다운로드
