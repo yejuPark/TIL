@@ -25,6 +25,12 @@
 - .git directory
 
 
+## A - github - B
+- A/B > github : push
+- A < github : pull
+- B < github : clone
+
+
 
 
  ## 명령어
