@@ -140,3 +140,4 @@ elif <조건식>:
 ```
 true_value if <조건식> else false_value
 ```
+
