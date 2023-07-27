@@ -110,7 +110,7 @@ keyword.kwlist
 1. `{Set}` : mutable
 - 수학 집합과 동일하게 처리 (중복 값 없음)
 2. `{Dict: ionary}` : mutable
-```
+```python
 변수이름 = {key1: value1, key2: value2, ...}
 ```
 - 접근 : `변수이름[key]`
@@ -122,22 +122,97 @@ keyword.kwlist
 
 ## 조건문 (if)
 : `if` 문은 반드시 참/거짓을 명시할 수 있는 `조건식`과 함께 사용
-```
+```python
 if <조건식>:
 ```
 - 조건식이 `참`인 경우 실행
-```
+```python
 else:
 ```
 - 조건식이 `거짓`인 경우 실행
 
-```
+```python
 elif <조건식>:
 ```
 - elif 조건이 `참`인 경우 실행
 
 #### 조건표현식
-```
+```python
 true_value if <조건식> else false_value
 ```
 
+---
+# 반복문
+
+### while 문
+```python
+while <조건식>:
+    실행 코드
+```
+
+### for 문
+```python
+for variable in sequence:
+    code
+```
+
+### dictionary 반복
+```python
+for key in dict:
+```
+```python
+for key in dict.keys():
+```
+```python
+for value in dict.values():
+```
+```python
+for key, value in dict.items():
+```
+
+### break
+- 반복문 종료
+
+ ### continue
+ - continue 이후의 코드를 실행하지 않고 다음 반복을 진행
+
+ ### else
+ - 끝까지 반복이 진행된 후 실행
+
+ ### pass
+ - class, 함수 구조 먼저 잡을때 임의로 사용
+
+ ### match
+ ```python
+ match value:
+    case 조건:
+        code
+    case 조건:
+        code
+    case _:
+        code
+ ```
+
+
+---
+ # 함수 (function)
+
+ ### 선언 및 호출
+ - 함수 선언
+ ```python
+ def func_name(parameter1, parameter2...):
+    code1
+    code2
+    ...
+    return value
+ ```
+
+ - 함수 호출(실행)
+ ```python
+ func_name(parameter1, parameter2)
+ ```
+
+ ### return
+ - 함수가 return 을 만나면 해당 값을 반환하고 함수를 종료
+ - 만약 return 이 없다면 None 을 자동으로 반환
+ - return 은 오직 하나의 객체만 반환
