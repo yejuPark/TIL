@@ -216,3 +216,36 @@ for key, value in dict.items():
  - 함수가 return 을 만나면 해당 값을 반환하고 함수를 종료
  - 만약 return 이 없다면 None 을 자동으로 반환
  - return 은 오직 하나의 객체만 반환
+
+
+ ## 함수의 인수
+
+- 위치 인수
+- 기본값 : `func(p1=v1)``
+- 키워드 인자 : 함수 호출(실행)시, 내가 원하는 위치에 직접 특정인자 전달 가능
+- 가변인자 리스트 : `func(*params)`
+- 정의되지 않은 인자 처리 : `func(**kwargs)`
+- dictionary를 인자로 넣기 (unpacking) : `func(p1, p2, p3...)`
+
+
+#### lambda 표현식
+```python
+(lambda a, b: a + b) (num1, num2)
+```
+- lambda parameter: expression
+
+#### 타입 힌트
+- 주석 달기
+
+#### 이름 공간 (scope)
+ : 파이썬에서 사용되는 이름들 저장
+- Local scope : 정의된 함수 내부
+- Enclosed scope : 상위 함수
+- Global scope : 함수 밖의 변수 혹은 import 된 모듈
+- Built-in scope : 파이썬 기본 함수 혹수 변수
+
+
+## 재귀 (recursive)
+: 함수 내부에서 자기 자신을 호출
+- 팩토리얼
+- 피보나치 수열
