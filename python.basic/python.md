@@ -79,8 +79,8 @@ keyword.kwlist
 - interpolation (f-string)
 
 ---
-### 자료구조
-# 시퀀스 자료형
+# 자료구조
+## 시퀀스 자료형
  : 데이터의 순서대로 나열된 자료구조. (`순서대로` 와 `정렬된 것`은 다름)
 1. `[list]` : mutable
 2. `(Tuple)` : immutable
@@ -106,7 +106,7 @@ keyword.kwlist
     `count` : 몇 번 나오는지
 
 
-# 시퀀스가 아닌 자료형
+## 시퀀스가 아닌 자료형
 1. `{Set}` : mutable
 - 수학 집합과 동일하게 처리 (중복 값 없음)
 2. `{Dict: ionary}` : mutable
@@ -249,3 +249,141 @@ for key, value in dict.items():
 : 함수 내부에서 자기 자신을 호출
 - 팩토리얼
 - 피보나치 수열
+
+# method
+
+## 문자열
+- `.capitalize()`
+- `.title()`
+- `.upper()`
+- `.lower()`
+- `''.join(iterable)`
+- `.replace(old, new[, count])`
+- `.strip([chars])`
+- `.find(x)`
+- `.index(x)`
+- `.split(x)`
+- `.count(x)`
+
+## List
+- `.append(x)`
+- `.extend(iterable)`
+- `.insert(idx,x)`
+- `.remove(x)`
+- `.pop([idx])`
+- `.sort()` 
+: `.sort(reverse=True)`는 역순
+- `.reverse()`
+
+### list copy
+: origin_list = copy_list 후 copy_list[idx] 변경하면 origin_list 도 바뀜
+```python
+import copy
+a = []
+b = copy.deepcopy(a)
+```
+
+### list comprehension
+: for, if 문 한줄로 만들기
+```python
+even_list = [i for i in numbers if i % 2 == 0]
+```
+
+## dictionary
+- `.pop(key[, default])`
+- `.update(key=value)`
+- `.get(key[, default])`
+
+### dict comprehension
+```python
+result = {k: v for k, v in dust.items() if v >= 50}
+```
+
+
+## Set
+- `.add('x')`
+- `.update()`
+- `.remove()`
+- `.pop()`
+
+
+## map(), zip(), filter()
+### map
+```python
+map(funtion, iterable)
+```
+
+### zip
+```python
+zip([a],[b])
+```
+
+### filter
+```python
+filter(function, iterable)
+```
+: filter 에 들어가는 function은 T/F를 반환해야 함
+
+
+# module
+```python
+import 파일명
+```
+
+# Package
+```python
+myPackage/
+    __init__.py
+    math/
+        __init__.py
+        fibo.py
+        formula.py
+```
+: 패키지 안에 `__init__.py` 파일이 있어야 패키지로 인식
+
+- 패키지 폴더 전체 추가
+```python
+import myPackage
+```
+
+- 패키지에서 필요한 모듈 꺼내오기
+```python
+from myPackage.math import formula
+```
+
+- 경로에 있는 모듈 내 모든 변수, 함수 추가
+```python
+from myPackage.math.fibo import *
+```
+
+
+# Python 내장 패키지
+
+## `math.`
+- math.pi
+- math.e
+- math.ceil() : 소수점 올림
+- math.floor() : 소수점 내림
+- math.sqrt() : 루트
+## `random.`
+- random.randint(n1,n2)
+- random.seed()
+- random.shuffle()
+- random.choice()
+- random.sample(n1,n2)
+
+## `datatime.`
+```python
+from datetime import datetime
+```
+- datetime.now()
+- datetime.today()
+- datetime.utcnow()
+- now.strftime('%Y/%m/%d')
+- now.weekday() : weekday => 0~6, 월~일
+```python
+from datetime improt timedelta
+```
+- 날짜 더하고 빼기 
+
+
