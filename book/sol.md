@@ -6,3 +6,7 @@ dict = {}
 
 - 짝수, 홀수 구할때 range(n, m, 2) 
 - inx [-1] 은 맨 마지막 자리
+
+- `list.reverse()` = `list[::-1]` = `answer.insert(0, num)`
+
+- 문자열 제거 : `string.replace(cha,'')`
