@@ -387,3 +387,116 @@ from datetime improt timedelta
 - 날짜 더하고 빼기 
 
 
+# Error
+
+## syntax error
+: 문법 오류
+
+## exception
+- ZeroDivisionError
+- NameError
+- TypeError
+- ValueError
+- IndexError
+- KeyError
+- ModuleNotFoundError
+- KeyboardInterrupt
+
+## 예외 처리
+```python
+try:
+    code
+except Error:
+    code
+```
+- else => 예외를 일으키지 않을 때 실행
+- finally => 예외의 발생 여부와 상관없이 최종적으로 무조건 실행
+- raise => 예외 강제 발생
+
+
+# 객체지향 프로그래밍(OOP)
+- 클래스(class) : 같은 종류의 집단에 속하는 속성(attribute)과 행위(method)를 `정의`한 것
+- 인스턴스(instance) : 클래스를 실제로 메모리상에 `할당`한 것
+- 속성(attribute) : 클래스/인스턴스가 가지고 있는 `데이터`/값
+- 행위(method) : 클래스/인스턴스가 가지고 있는 `함수`/기능
+
+## Class
+- class 선언
+```python
+class ClassName:
+    attribute = value
+
+    def method_name(self):
+        code
+```
+
+- instance 화
+```python
+ClassName()
+```
+
+### self
+- self : 인스턴스 객체 자기자신 (다른언어에서는 this)
+- 특별한 상황을 제외하고는 무조건 첫번째 인자로 설정
+- instance_method 실행 시, 자동으로 첫번째 인자에 instance 할당
+
+
+## 생성자, 소멸자
+```python
+class MyClass:
+    def __init__(self):
+        pass
+
+    def __del__(self):
+        pass
+```
+
+### class 변수
+- 클래스 선언 블록 최상단에 위치
+
+### instance 변수
+- 인스턴스 내부에서 생성한 변수 (self.variable = )
+```python
+class TestClass:
+    class_variable = '클래스변수'
+
+    def __init__(self, arg):
+        self.instance_variable = '인스턴스변수'
+
+    def status(self):
+        return self.instance_variable
+```
+
+### _method
+```python
+class MyClass:
+    def instance_method(self):
+        pass
+
+    @classmethod
+    def class_method(cls):
+        pass
+
+    @staticmethod
+    def static_method():
+        pass
+```
+
+### 정리
+```
+class
+    - attribute (variable, data)
+        - instance_variable
+        - class_variable
+    - method
+        - instance_method
+        - class_method
+        - static_method
+```
+---
+## 상속
+```python
+class ClassName(상위class):
+    pass
+```
+- super().__init__() : 상위 class
