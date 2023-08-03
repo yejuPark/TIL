@@ -28,3 +28,38 @@ counter = [0 for _ in range(10)]
 counter = [0,0,0,0,0,0,0,0,0,0]
 counter = [0]*10
 ```
+
+- 가로 합
+```python
+for row in range(len(matrix)):
+    temp = 0
+    for col in range(len(matrix[0])):
+        temp += matrix[row][col]
+```
+
+- 세로 합
+```python
+for col in range(len(matrix[0])):
+    temp = 0
+    for row in range(len(matrix)):
+        temp += matrix[row][col]
+```
+
+- 대각선 \
+```python
+temp = 0
+for i in range(len(matrix)):
+    temp += matrix[i][i]
+```
+
+- 대각선 /
+```python
+temp = 0
+for i in range(len(matrix)):
+    temp += matrix[i][(len(matrix)-1)-i]
+```
+
+- 10 x 10 배열
+```python
+board = [[0 for _ in range(10)] for _ in range(10)]
+```
