@@ -63,3 +63,8 @@ for i in range(len(matrix)):
 ```python
 board = [[0 for _ in range(10)] for _ in range(10)]
 ```
+
+- join 함수??
+```python
+result = ' '.join(map(str, temp[0:10]))
+```
