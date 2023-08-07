@@ -124,6 +124,74 @@ for row in range(N):
             result.append(''.join(temp_col))
 ```
 
+# Stack
 
+
+### DP (memoization)
+- 피보나치 수열
+```python
+memo = [0,1]
+
+def fibo(n):
+    if n>=2 and len(memo)<=n:
+        memo.append(fibo(n-1) + fibo(n-2))
+        return memo[n]
+```
+### DFS
+- 인접 행렬 (2차원 표)
+```python
+nodes = [[0]*(V+1) for _ in range(V+1)]
+
+for line in range(E):
+    nodes[start][end] = 1
+
+
+check_list = [False] * (V+1)
+stack = []
+
+now = S
+stack.append(now)
+
+result = 0
+
+while len(stack):
+    now = stack.pop()
+    check_list[now] = True
+
+    for link in range(V+1):
+        if nodes[now][link] == 1:
+            if not check_list[link]:
+                if link == G:
+                    result = 1
+
+                stack.append(link)
+```
+
+- 인접 리스트
+```python
+nodes = [[] for _ in range(V+1)]
+
+for line in range(E):
+    nodes[start].append(end)
+
+check_list = [False]*(V+1)
+stack = []
+
+now = S
+stack.append(now)
+result = 0
+
+while len(stack):
+    now = stack.pop
+    check_lsit[now] = True
+
+    for link in nodes[now]:
+        if not check_list[link]:
+            if link == G:
+                result = 1
+
+            stack.append(link)
+    
+```
 
 
