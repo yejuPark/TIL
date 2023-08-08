@@ -194,4 +194,56 @@ while len(stack):
     
 ```
 
+### 백트래킹
+- 모든 경우의 수 탐색 (step 1)
+```python
+def def_name(row):
+    if row >= N:
+        print(result)
+        return
+
+    for col in range(N):
+        result.append(numbers[row][col])
+        def_name(row+1)
+
+        result.pop()
+```
+- (step 2)
+```python
+def def_name(row, visited):
+    if row >= N:
+        print(result)
+        return
+
+    for col in range(N):
+        if visited[col] == False:
+            result.append(numbers[row][col])
+            visited[col] = True
+            def_name(row+1, visited)
+
+            result.pop()
+            visited[col] = False
+```
+- (sol)
+```python
+def def_name(row, visited, SUM):
+    global MIN_SUM
+    
+    if row >= N:
+        if SUM < MIN_SUM:
+            MIN_SUM = SUM
+        return
+
+    if SUM > MIN_SUM:
+        return
+
+    for col in range(N):
+        if visited[col] == False:
+            SUM += numbers[row][col]
+            visited[col] = True
+            def_name(row+1, visited, SUM)
+
+            SUM -= numbers[row][col]
+            visited[col] = False
+```
 

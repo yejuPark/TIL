@@ -12,6 +12,13 @@ for tc in range(1, T+1):
     <> = map(int, input().split())
 ```
 
+- `numbers = [list(map(int, input().split())) for _ in range(N)]``
+```python
+numbers = []
+    for _ in range(N):
+        number = list(map(int, input().split()))
+        numbers.append(number)
+```
 
 - {'':0} 모두 기입시 for 구문만
 - _dict={} 정의시 for + if 구문\
@@ -68,3 +75,4 @@ board = [[0 for _ in range(10)] for _ in range(10)]
 ```python
 result = ' '.join(map(str, temp[0:10]))
 ```
+
