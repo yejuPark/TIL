@@ -246,4 +246,130 @@ def def_name(row, visited, SUM):
             SUM -= numbers[row][col]
             visited[col] = False
 ```
+### BFS
+- 피자 굽기
+```python
+T = int(input())
 
+for tc in range(1, T+1):
+    N, M = list(map(int, input().split()))
+    Ci = list(map(int, input().split()))
+
+    before = []
+    for i in range(M):
+        before.append([Ci[i], i])
+
+    queue = [0] * N
+
+    after = []
+
+    while len(after) != M:
+
+        if queue[0] == 0:
+            if len(before) != 0:
+                cheeze, idx = before.pop(0)
+                queue.append([cheeze, idx])
+                queue.pop(0)
+            else:
+                queue.pop(0)
+                queue.append(0)
+        else:
+            queue[0][0] //= 2
+
+            if queue[0][0] == 0:
+                after.append(queue.pop(0))
+
+                if len(before) != 0:
+                    cheeze, idx = before.pop(0)
+                    queue.append([cheeze, idx])
+                
+                else:
+                    queue.append(0)
+
+            else:
+                queue.append(queue.pop(0))
+
+```
+### 미로
+- DFS 백트래킹
+```python
+T = int(input())
+
+for tc in range(1, T+1):
+    N = int(input())
+    maze = [list(map(int, input())) for _ in range(N)]
+
+    # 시작점 찾기
+    for i in range(N):
+        for j in range(N):
+            if maze[i][j] == 2:
+                start = (i, j)
+
+    # dfs
+    stack = []
+    stack.append(start)
+
+    # 상하좌우 델타값
+    dx = [0, 0, -1, 1]
+    dy = [-1, 1, 0, 0]
+
+    result = 0
+
+    while len(stack):
+        now = stack.pop()
+        x, y = now[0], now[1]
+
+        maze[x][y] = 1  # <= check
+
+        # 상하좌우 확인
+        for i in range(4):
+            nx = x + dx[i]
+            ny = y + dy[i]
+
+            if 0 <= nx < N and 0 <= ny < N:
+                if maze[nx][ny] == 0:
+                    stack.append((nx,ny))
+
+                elif maze[nx][ny] == 3:
+                    result = 1
+                    break
+```
+
+- (거리구하기) : BFS
+```python
+T = int(input())
+
+for tc in range(1, T+1):
+    N = int(input())
+    maze = [list(map(int, input())) for _ in range(N)]
+
+    for i in range(N):
+        for j in range(N):
+            if maze[i][j] == 2:
+                start = (i, j)
+                maze[i][j] = -1  # <= check
+    
+    # bfs
+    queue = [start]
+
+    dx = [0, 0, -1, 1]
+    dy = [-1, 1, 0, 0]
+
+    result = 0
+
+    while len(queue):
+        now = queue.pop(0)
+        x, y = now[0], now[1]
+
+        for i in range(4):
+            nx = x + dx[i]
+            ny = y + dy[i]
+
+            if 0 <= nx < N and 0 <= ny < N:
+                if maze[nx][ny] == 0:
+                    queue.append((nx, ny))
+                    maze[nx][ny] = maze[x][y] 
+                
+                elif maze[nx][ny] == 3:
+                    result = abs(maze[x][y]) - 1  # <= abs() : 절댓값
+```
