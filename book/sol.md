@@ -1,6 +1,8 @@
 list = []
 dict = {}
 
+- str 뒤집기 : `my_string[::-1]`
+
 - 시작할때
 ```python
 import sys
@@ -71,7 +73,7 @@ for i in range(len(matrix)):
 board = [[0 for _ in range(10)] for _ in range(10)]
 ```
 
-- join 함수??
+- 'str'.join()
 ```python
 result = ' '.join(map(str, temp[0:10]))
 ```
@@ -92,3 +94,29 @@ for i in range(0, E*2, 2): # 리스트 1개를 2개로
     else:
         right_node[parent] = child
 ```
+
+- if/elif => {} (programmers_옷가게할인)
+```python
+def solution(price):
+    discount_rates = {500000: 0.8, 300000: 0.9, 100000: 0.95, 0: 1}
+    for discount_price, discount_rates in discount_rates.items():
+        if price > discount_price:
+            return int(price * discount_rates)
+```
+
+- array 에 주어진 데이터보다 크거나 작은 데이터의 갯수 구할때
+```python
+def solution(array, data):
+    array.append(data)
+    array.sort(reverse=True)
+    return array.index(data)
+```
+```python
+def solution(array, data):
+    return sum(1 for a in array if a > data)
+```
+
+- sort() : 기존 리스트 변경
+ / sorted() : 새로운 리스트 반환
+
+ - n * (2**t) = n << t
