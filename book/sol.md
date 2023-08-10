@@ -76,3 +76,19 @@ board = [[0 for _ in range(10)] for _ in range(10)]
 result = ' '.join(map(str, temp[0:10]))
 ```
 
+- Tree 구조 알고리즘
+```python
+nodes = lsit(map(int, input().split()))
+
+left_node = [0] * (E+2)  # E : 간선의 개수
+right_node = [0] * (E+2)
+
+for i in range(0, E*2, 2): # 리스트 1개를 2개로   
+    parent = nodes[i]
+    child = nodes[i+1]
+
+    if left_node[parent] == 0 :
+        left_node[parent] = child  # 왼쪽이 비어있으면 왼쪽부터 채우기
+    else:
+        right_node[parent] = child
+```

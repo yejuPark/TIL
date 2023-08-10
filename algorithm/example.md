@@ -373,3 +373,28 @@ for tc in range(1, T+1):
                 elif maze[nx][ny] == 3:
                     result = abs(maze[x][y]) - 1  # <= abs() : 절댓값
 ```
+
+# Tree
+
+## 이진트리
+- heap
+```python
+tree = [0] + list(map(int, input().split()))
+result = 0
+
+for i in range(1, N+1):
+    # i = child.idx
+    # i//2 = parent.idx
+
+    # 조건에 맞도록 교환 반복
+    while tree[i] < tree[i//2]:
+        tree[i//2], tree[i] = tree[i], tree[i//2]
+        i //= 2
+
+    parent = N//2
+
+    # 루트에 도달할때까지 조상 찾으러 가는 길에 거쳐간 value 다 더하기
+    while parent > 0:
+        result += tree[parent]
+        parent //= 2
+```
