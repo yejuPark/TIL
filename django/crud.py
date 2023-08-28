@@ -26,6 +26,9 @@ urlpatterns = [
     # Create
     path('posts/new/', views.new),
     path('posts/create/', views.create),
+
+    # Delete
+    path('posts/<int:id>/delete/', views.delete),
 ]
 
 # posts/views.py - 함수
@@ -62,3 +65,9 @@ def craete(request):
     post.save()
 
     return redirect(f'/posts/{post.id}/')
+
+
+def delete(request, id):
+    post = Post.objects.get(id=id)
+    post.delete()
+    return redirect('/index/')
