@@ -22,6 +22,10 @@ urlpatterns = [
     # Read
     path('index/', views.index),
     path('posts/<int:id>/', views.detail),
+
+    # Create
+    path('posts/new/', views.new),
+    path('posts/create/', views.create),
 ]
 
 # posts/views.py - 함수
@@ -42,3 +46,19 @@ def detail(request, id):
         'post': post,
     }
     return render(request, 'detail.html', context)
+
+
+def new(request):
+    return render(request, 'new.html')
+
+
+def craete(request):
+    title = request.GET.get('title')
+    content = request.GET.get('content')
+
+    post = Post()
+    post.title = title
+    post.content = content
+    post.save()
+
+    return redirect(f'/posts/{post.id}/')
