@@ -32,6 +32,7 @@ urlpatterns = [
 
     # Update
     path('posts/<int:id>/edit/', views.edit),
+    path('posts/<int:id>/update.', views.update),
 ]
 
 # posts/views.py - 함수
@@ -82,3 +83,15 @@ def edit(request, id):
         'post': post,
     }
     return render(request, 'edit.html', context)
+
+
+def update(request, id):
+    title = request.GET.get('title')
+    content = request.GET.get('content')
+
+    post = Post.objects.get(id=id)
+    post.title = title
+    post.content = content
+    post.save()
+
+    return redirect(f'/posts/{post.id}/')
