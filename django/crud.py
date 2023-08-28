@@ -29,6 +29,9 @@ urlpatterns = [
 
     # Delete
     path('posts/<int:id>/delete/', views.delete),
+
+    # Update
+    path('posts/<int:id>/edit/', views.edit),
 ]
 
 # posts/views.py - 함수
@@ -71,3 +74,11 @@ def delete(request, id):
     post = Post.objects.get(id=id)
     post.delete()
     return redirect('/index/')
+
+
+def edit(request, id):
+    post = Post.objects.get(id=id)
+    context = {
+        'post': post,
+    }
+    return render(request, 'edit.html', context)
